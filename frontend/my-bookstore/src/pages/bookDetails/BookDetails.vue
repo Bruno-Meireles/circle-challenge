@@ -2,15 +2,9 @@
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router"; 
 import axios from "axios";
+import type { Book } from '../../types/Book';
 
-interface Book {
-  id: number;
-  title: string;
-  author: string;
-  isbn: number;
-  price: number;
-  availableStock: number;
-}
+
 const route = useRoute();
 const router = useRouter(); 
 const book = ref<Book | null>(null);
@@ -26,22 +20,70 @@ const fetchBook = async () => {
 
 onMounted(fetchBook);
 </script>
-
 <template>
-  <div v-if="book">
+  <div v-if="book" class="details">
     <h1>{{ book.title }}</h1>
-    <p><strong>Autor:</strong> {{ book.author }}</p>
-    <p><strong>Isbn:</strong> {{ book.isbn }}</p>
-    <p><strong>Preço:</strong> {{ book.price }}</p>
-    <p><strong>Estoque:</strong> {{ book.availableStock }}</p>
-    <button>Comprar</button>
-    <button @click="router.push('/')">Voltar</button>
+    <div class="info">
+      <p><strong>Autor:</strong> {{ book.author }}</p>
+      <p><strong>Isbn:</strong> {{ book.isbn }}</p>
+      <p><strong>Preço:</strong> {{ book.price }}</p>
+      <p><strong>Estoque:</strong> {{ book.availableStock }}</p>
+    </div>
+    <div class="buttons">
+      <button class="buy">Comprar</button>
+      <button @click="router.push('/')">Voltar</button>
+    </div>
   </div>
   <p v-else>Carregando detalhes do livro...</p>
 </template>
 
 <style scoped>
+.details {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fefefe;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.info {
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 p {
-  margin: 5px 0;
+  margin: 0.4rem 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+button {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+}
+
+.buy {
+  background-color: #27ae60;
+}
+
+.buy:hover {
+  background-color: #2ecc71;
+}
+
+button:hover {
+  background-color: #34495e;
 }
 </style>
