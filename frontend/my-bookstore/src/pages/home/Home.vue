@@ -39,16 +39,20 @@ onMounted(fetchBooks);
  
   </div>
 </template>
+
 <style scoped>
-.home {
-  padding: 2rem;
-  text-align: left;
+body {
+  background-color: #1c1c1c;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
 }
+
 .title {
   text-align: center;
   margin-top: 40px;
-  font-size: 32px;
-  color: #333;
+  font-size: 36px;
+  color: #f1c40f;
+  text-shadow: 1px 1px 4px #000;
 }
 
 .book-list {
@@ -62,41 +66,43 @@ onMounted(fetchBooks);
 }
 
 .book-item {
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   padding: 20px;
   border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
+  background-color: #2c2c2e;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .book-item:hover {
-  transform: scale(1.01);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.05);
 }
 
 .book-info p {
   margin: 6px 0;
-  color: #444;
+  color: #ddd;
 }
 
 .book-info p strong {
   font-size: 18px;
-  color: #222;
+  color: #ffffff;
 }
 
 button {
   margin-top: 10px;
-  background-color: #007bff;
+  background-color: #2980b9;
   color: white;
-  padding: 8px 14px;
+  padding: 10px 16px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #3498db;
+  transform: scale(1.03);
 }
 </style>

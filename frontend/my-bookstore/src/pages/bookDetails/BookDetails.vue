@@ -150,39 +150,79 @@ onMounted(fetchBook);
 <style scoped>
 .details {
   padding: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #fefefe;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #2c2c2e;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
 }
-.info {
-  margin-bottom: 1.5rem;
-}
+
 h1 {
   text-align: center;
+  font-size: 28px;
+  margin-bottom: 1.5rem;
+  color: #f1c40f;
+  text-shadow: 1px 1px 4px #000;
 }
+
+.info {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #1e1e20;
+  border-radius: 8px;
+  border: 1px solid #444;
+}
+
+.info p {
+  margin: 0.5rem 0;
+  color: #ddd;
+}
+
+.info strong {
+  color: #ffffff;
+}
+
 .buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  margin-top: 1.5rem;
 }
+
 button {
-  padding: 0.6rem 1.2rem;
+  padding: 10px 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 .buy {
   background-color: #27ae60;
 }
+
 .buy:hover {
   background-color: #2ecc71;
+  transform: scale(1.05);
 }
+
 button:not(.buy) {
-  background-color: #2c3e50;
-}
-button:not(.buy):hover {
   background-color: #34495e;
+}
+
+button:not(.buy):hover {
+  background-color: #3d566e;
+  transform: scale(1.05);
+}
+
+p[v-cloak],
+p[v-if="successMessage"] {
+  text-align: center;
+  margin-top: 1rem;
+  color: #2ecc71;
 }
 </style>
