@@ -144,7 +144,7 @@ onMounted(fetchBook);
     </div>
     <p v-if="successMessage">{{ successMessage }}</p>
   </div>
-  <p v-else>Carregando detalhes do livro...</p>
+  <p class="loading" v-else>Carregando detalhes do livro...</p>
 </template>
 
 <style scoped>
@@ -166,7 +166,12 @@ h1 {
   color: #f1c40f;
   text-shadow: 1px 1px 4px #000;
 }
-
+.loading {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #f1c40f;
+  text-shadow: 1px 1px 4px #000;} 
 .info {
   margin-bottom: 1.5rem;
   padding: 1rem;
