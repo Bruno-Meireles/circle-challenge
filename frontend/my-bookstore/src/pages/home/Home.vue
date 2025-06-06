@@ -2,16 +2,8 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
-import { Book } from '../../types/Book.ts' 
+import type { Book } from '../../types/Book';
 
-interface Book {
-  id: number;
-  title: string;
-  author: string;
-  isbn: number;
-  price: number;
-  availableStock: number;
-}
 
 const books = ref<Book[]>([]);
 const router = useRouter();
